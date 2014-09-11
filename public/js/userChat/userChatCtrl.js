@@ -34,15 +34,15 @@ angular.module('userChatApp')
     //   $scope.chats = chats;
     //
     // });
-    //
-    // $rootScope.$on('chat:added', function() {
-    //
-    //   userChatSvc.getChats().success(function(chats) {
-    //
-    //     $scope.chats = chats;
-    //
-    //   });
-    //
-    // });
+
+    $rootScope.$on('chat:added', function() {
+
+      userChatSvc.getChats().success(function(chats) {
+
+        $scope.chats = chats;
+
+      });
+
+    });
 
   });
