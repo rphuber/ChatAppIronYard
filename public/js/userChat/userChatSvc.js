@@ -1,6 +1,6 @@
-angular.module('chatApp')
+angular.module('userChatApp')
 
-	.factory('chatSvc', function($log, $rootScope, $http) {
+	.factory('userChatSvc', function($log, $rootScope, $http) {
 
 
 	});
