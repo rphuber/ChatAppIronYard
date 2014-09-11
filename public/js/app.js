@@ -1,10 +1,7 @@
 'use strict';
 
 angular
-  .module('ngDay2App', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
+  .module('chatApp', [
     'ngRoute'
   ])
   .config(function ($routeProvider) {
@@ -12,21 +9,13 @@ angular
       .when('/', {
         templateUrl: 'views/main.html'
       })
-      .when('/blog', {
-        templateUrl: 'views/blog-list.html',
-        controller: 'PostsCtrl'
+      .when('/chatRoom', {
+        templateUrl: 'views/chatRoom.html',
+        controller: 'chatCtrl'
       })
-      .when('/new', {
-        templateUrl: 'views/blog-create.html',
-        controller: 'PostsCtrl'
-      })
-      .when('/blog/:id', {
-        templateUrl: 'views/blog-detail.html',
-        controller: 'PostCtrl'
-      })
-      .when('/blog/:id/edit', {
-        templateUrl: 'views/blog-editDetail.html',
-        controller: 'PostCtrl'
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'adminCtrl'
       })
       .otherwise({
         redirectTo: '/'
