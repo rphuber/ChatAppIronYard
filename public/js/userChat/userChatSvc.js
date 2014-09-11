@@ -12,6 +12,7 @@ angular.module('userChatApp')
 				return data;
 
 			});
+			};
 
 		var addChat = function(chat) {
 
@@ -24,7 +25,7 @@ angular.module('userChatApp')
 
 		};
 
-		};
+	
 
 		return {
 
