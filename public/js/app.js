@@ -1,21 +1,11 @@
-'use strict';
-
 angular
   .module('chatApp', [
-    'ngRoute'
+    'ngRoute', 'userChatApp', 'adminApp'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html'
-      })
-      .when('/chatRoom', {
-        templateUrl: 'views/chatRoom.html',
-        controller: 'chatCtrl'
-      })
-      .when('/admin', {
-        templateUrl: 'views/admin.html',
-        controller: 'adminCtrl'
       })
       .otherwise({
         redirectTo: '/'
