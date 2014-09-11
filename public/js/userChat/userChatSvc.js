@@ -3,7 +3,7 @@ angular.module('userChatApp')
 	.factory('userChatSvc', function($log, $rootScope, $http) {
 
 		var userName = '';
-		var chatsUrl = 'api/collections/chatappironyard';
+		var chatsUrl = '/api/collections/chatappironyard';
 
 		var getChats = function() {
 
@@ -13,6 +13,8 @@ angular.module('userChatApp')
 
 			});
 
+		};
+
 		var addChat = function(chat) {
 
 			$http.post(chatsUrl, chat).success(function (data) {
@@ -21,8 +23,6 @@ angular.module('userChatApp')
 				$log.info('chat:added');
 
 			});
-
-		};
 
 		};
 
