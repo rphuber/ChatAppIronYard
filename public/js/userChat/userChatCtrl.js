@@ -1,5 +1,5 @@
-angular.module('chatApp')
+angular.module('userChatApp')
 
-  .controller('chatCtrl', function ($scope, $location, $routeParams, $rootScope, chatSvc) {
+  .controller('chatCtrl', function ($scope, $location, $routeParams, $rootScope, userChatSvc) {
 
   })
