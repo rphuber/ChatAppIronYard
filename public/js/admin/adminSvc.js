@@ -6,11 +6,7 @@ angular.module('adminApp')
 
     var getChats = function() {
 
-      $http.get(chatsUrl).success(function(data) {
-
-        return data;
-
-      });
+      return $http.get(chatsUrl)
 
     };
 

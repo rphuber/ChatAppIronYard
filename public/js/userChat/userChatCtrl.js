@@ -15,6 +15,11 @@ angular.module('userChatApp')
 
     };
 
+    userChatSvc.getChats().success(function(chats) {
+
+      $scope.chats = chats;
+
+    });
 
     $scope.addChat = function(chat) {
 
@@ -29,12 +34,6 @@ angular.module('userChatApp')
       userChatSvc.addChat(chatData);
 
     };
-
-    userChatSvc.getChats().success(function(chats) {
-
-      $scope.chats = chats;
-
-    });
 
     $rootScope.$on('chat:added', function() {
 

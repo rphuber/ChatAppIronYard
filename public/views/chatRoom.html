@@ -1,11 +1,13 @@
 <h1>Welcome to the chat room, {{getUserName()}}.</h1>
 
 <form ng-submit="addChat(chat)">
-
-  <textarea cols="30" rows="10" ng-model="chat.text">
-
-  </textarea>
-  <button type="submit">Submit</button>
-
+	<div class="col-sm-12">
+    	<div class="input-group">
+    		<input type="text" class="form-control" ng-model="chat.text">
+    		<span class="input-group-btn">
+    			<button class="btn btn-default" type="submit">Send</button>
+    		</span>
+    	</div>	
+	</div>
 </form>
 
