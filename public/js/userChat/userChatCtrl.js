@@ -29,11 +29,11 @@ angular.module('userChatApp')
 
     };
 
-    // userChatSvc.getChats().success(function(chats) {
-    //
-    //   $scope.chats = chats;
-    //
-    // });
+    userChatSvc.getChats().success(function(chats) {
+
+      $scope.chats = chats;
+
+    });
 
     $rootScope.$on('chat:added', function() {
 
