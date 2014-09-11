@@ -6,7 +6,7 @@ angular.module("userChatApp", ['ngRoute'])
 
       .when('/chatRoom', {
         templateUrl: 'views/chatRoom.html',
-        controller: 'chatCtrl'
+        controller: 'userChatCtrl'
       })
 
   });
