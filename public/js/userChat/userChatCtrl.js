@@ -15,20 +15,34 @@ angular.module('userChatApp')
 
     };
 
-    userChatSvc.getChats().success(function(chats) {
+    $scope.addChat = function(chat) {
 
-      $scope.chats = chats;
+      var chatData = {
 
-    });
+        userName:userChatSvc.userName,
+        date:new Date(),
+        chatText:chat.text
 
-    $rootScope.$on('chat:added', function() {
+      };
 
-      userChatSvc.getChats().success(function(chats) {
+      userChatSvc.addChat(chatData);
 
-        $scope.chats = chats;
+    };
 
-      });
+    // userChatSvc.getChats().success(function(chats) {
+    //
+    //   $scope.chats = chats;
+    //
+    // });
+    //
+    // $rootScope.$on('chat:added', function() {
+    //
+    //   userChatSvc.getChats().success(function(chats) {
+    //
+    //     $scope.chats = chats;
+    //
+    //   });
+    //
+    // });
 
-    });
-
-  })
+  });
