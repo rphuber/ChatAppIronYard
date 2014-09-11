@@ -1,1 +1,14 @@
 <h1>Welcome Admin</h1>
+
+<h2>Chats</h2>
+
+<section class='chatContainer'>
+
+  <div ng-repeat='chat in chats'>
+
+    <h3 ng-model='chat.text'>{{chat.text}}</h3>
+    <button ng-click='deleteChat(chat._id)'>Delete Chat</button>
+
+  </div>
+
+</section>
