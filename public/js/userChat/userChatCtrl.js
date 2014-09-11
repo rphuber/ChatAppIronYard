@@ -15,11 +15,26 @@ angular.module('userChatApp')
 
     };
 
-    userChatSvc.getChats().then(function(chats) {
 
-      $scope.chats = chats;
+    $scope.addChat = function(chat) {
 
-    });
+      var chatData = {
+
+        userName:userChatSvc.userName,
+        date:new Date(),
+        chatText:chat.text
+
+      };
+
+      userChatSvc.addChat(chatData);
+
+    };
+
+    // userChatSvc.getChats().success(function(chats) {
+    //
+    //   $scope.chats = chats;
+    //
+    // });
 
     $rootScope.$on('chat:added', function() {
 
