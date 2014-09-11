@@ -9,5 +9,9 @@
 
 <div class="jumbotron">
   <h1>Welcome to the Iron Yard Chat Room</h1>
-  <p><a class="btn btn-lg btn-success" ng-href="#/chatRoom">Enter</a></p>
+  <form class="userNameSubmit" ng-submit="submitUserName(userName)">
+    <h3>Please enter your name.</h3>
+    <input type="text" ng-model="userName">
+    <button type="submit">Go to Chat Room</button>
+  </form>
 </div>
