@@ -1,19 +1,16 @@
 angular.module('userChatApp')
 
-  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, userChatSvc) {
+  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $cookies, userChatSvc) {
 
     $scope.submitUsername = function(name) {
 
-      userChatSvc.username = name;
+      userChatSvc.submitUsername(name);
+
       $location.path("/chatRoom");
 
     };
 
-    $scope.getUsername = function() {
-
-      return userChatSvc.username;
-
-    };
+    $scope.username = $cookies.username;
 
     userChatSvc.getChats().success(function(chats) {
 
@@ -25,14 +22,14 @@ angular.module('userChatApp')
 
       var chatData = {
 
-        username:userChatSvc.userName,
+        username:$scope.username,
         date:new Date(),
         content:chat.text
 
       };
 
       userChatSvc.addChat(chatData);
-      $scope.chat = {};
+      $scope.chatSubmit = {};
 
     };
 

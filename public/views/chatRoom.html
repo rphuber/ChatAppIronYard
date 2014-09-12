@@ -1,22 +1,22 @@
-<h1>Welcome to the chat room, {{getUserName()}}.</h1>
+<h1>Welcome to the chat room, {{username}}.</h1>
 <div class="chatroom-container">
 	<div class="chat-area">
 		<div class="chats" ng-repeat="chat in chats track by $index">
 			<h2 class="chat-userName">
-				{{chat.userName}}
+				{{chat.username}}
 			</h2>
 			<p class="chat.date">
 				{{chat.date}}
 			</p>
 			<div class="chat-box">
-				<p>{{chat.chatText}}</p>
+				<p>{{chat.content}}</p>
 			</div>
 		</div>
 	</div>
-	<form ng-submit="addChat(chat)">
+	<form ng-submit="addChat(chatSubmit)">
 		<div class="col-sm-12">
 	    	<div class="input-group">
-	    		<input type="text" class="form-control" ng-model="chat.text">
+	    		<input type="text" class="form-control" ng-model="chatSubmit.text">
 	    		<span class="input-group-btn">
 	    			<button class="btn btn-default" type="submit">Send</button>
 	    		</span>
