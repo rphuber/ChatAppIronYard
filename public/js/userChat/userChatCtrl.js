@@ -1,6 +1,7 @@
 angular.module('userChatApp')
 
-  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $cookies, userChatSvc) {
+  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $cookies, $cookieStore, userChatSvc) {
+    
 
     $scope.submitUsername = function(name) {
 
