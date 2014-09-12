@@ -2,7 +2,7 @@ angular.module('userChatApp')
 
 	.factory('userChatSvc', function($log, $rootScope, $http) {
 
-		var userName = '';
+		var username = 'Cory Figueroa';
 		var chatsUrl = '/api/collections/chatappironyard';
 
 		var getChats = function() {
@@ -24,7 +24,7 @@ angular.module('userChatApp')
 
 		return {
 
-			userName:userName,
+			username:username,
 			getChats:getChats,
 			addChat:addChat
 

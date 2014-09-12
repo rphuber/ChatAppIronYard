@@ -1,13 +1,12 @@
-<h1>Welcome to the chat room, {{getUserName()}}.</h1>
+<h1>Welcome to the chat room, {{getUsername()}}.</h1>
 
 <form ng-submit="addChat(chat)">
 	<div class="col-sm-12">
     	<div class="input-group">
-    		<input type="text" class="form-control" ng-model="chat.text">
+    		<input type="text" class="form-control" ng-model="chat.text" required>
     		<span class="input-group-btn">
     			<button class="btn btn-default" type="submit">Send</button>
     		</span>
-    	</div>	
+    	</div>
 	</div>
 </form>
-
