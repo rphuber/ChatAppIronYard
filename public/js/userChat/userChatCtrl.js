@@ -41,6 +41,7 @@ angular.module('userChatApp')
       userChatSvc.getChats().then(function(chats) {
 
         $scope.chats = chats;
+        $route.reload();
 
       });
 
