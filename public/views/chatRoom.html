@@ -6,7 +6,7 @@
 				{{chat.username}}
 			</h2>
 			<p class="chat.date">
-				{{chat.date}}
+				{{chat.date | date: "MMMM', 'd 'at' h:mm a"}}
 			</p>
 			<div class="chat-box">
 				<p>{{chat.content}}</p>
@@ -23,4 +23,7 @@
 	    	</div>
 		</div>
 	</form>
+	<section class="onlineUsers" ng-repeat="user in onlineUsers">
+		{{user}}
+	</section>
 </div>
