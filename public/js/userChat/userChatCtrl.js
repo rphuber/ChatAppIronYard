@@ -1,6 +1,6 @@
 angular.module('userChatApp')
 
-  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $cookies, userChatSvc) {
+  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $route, $cookies, userChatSvc) {
 
     $scope.submitUsername = function(name) {
 
@@ -18,7 +18,7 @@ angular.module('userChatApp')
 
     });
 
-    $scope.addChat = function(chat) {
+      $scope.addChat = function(chat) {
 
       var chatData = {
 
@@ -29,6 +29,7 @@ angular.module('userChatApp')
       };
 
       userChatSvc.addChat(chatData);
+
       $scope.chatSubmit = {};
 
     };

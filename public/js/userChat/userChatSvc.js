@@ -1,6 +1,6 @@
 angular.module('userChatApp')
 
-	.factory('userChatSvc', function($log, $rootScope, $http, $cookies) {
+	.factory('userChatSvc', function($log, $rootScope, $http, $cookies, $route) {
 
 		var submitUsername = function(name) {
 
@@ -20,8 +20,11 @@ angular.module('userChatApp')
 
 			$http.post(chatsUrl, chat).success(function (data) {
 
+
 				$rootScope.$broadcast('chat:added');
 				$log.info('chat:added');
+				$route.reload();
+
 
 			});
 
