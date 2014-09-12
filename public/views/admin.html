@@ -6,7 +6,8 @@
 
   <div ng-repeat='chat in chats'>
 
-    <h3 ng-model='chat.text'>{{chat.text}}</h3>
+    <h3>{{chat.content}}</h3>
+    <p>By {{chat.username}} on {{chat.date | date}}</p>
     <button ng-click='deleteChat(chat._id)'>Delete Chat</button>
 
   </div>
