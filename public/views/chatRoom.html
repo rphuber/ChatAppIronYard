@@ -1,12 +1,26 @@
-<h1>Welcome to the chat room, {{getUsername()}}.</h1>
-
-<form ng-submit="addChat(chat)">
-	<div class="col-sm-12">
-    	<div class="input-group">
-    		<input type="text" class="form-control" ng-model="chat.text" required>
-    		<span class="input-group-btn">
-    			<button class="btn btn-default" type="submit">Send</button>
-    		</span>
-    	</div>
+<h1>Welcome to the chat room, {{getUserName()}}.</h1>
+<div class="chatroom-container">
+	<div class="chat-area">
+		<div class="chats" ng-repeat="chat in chats track by $index">
+			<h2 class="chat-userName">
+				{{chat.userName}}
+			</h2>
+			<p class="chat.date">
+				{{chat.date}}
+			</p>
+			<div class="chat-box">
+				<p>{{chat.chatText}}</p>
+			</div>
+		</div>
 	</div>
-</form>
+	<form ng-submit="addChat(chat)">
+		<div class="col-sm-12">
+	    	<div class="input-group">
+	    		<input type="text" class="form-control" ng-model="chat.text">
+	    		<span class="input-group-btn">
+	    			<button class="btn btn-default" type="submit">Send</button>
+	    		</span>
+	    	</div>
+		</div>
+	</form>
+</div>
