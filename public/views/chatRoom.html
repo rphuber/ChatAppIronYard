@@ -2,14 +2,14 @@
 <div class="chatroom-container">
 	<div class="chat-area">
 		<div class="chats" ng-repeat="chat in chats track by $index">
-			<h2 class="chat-userName">
-				{{chat.username}}
-			</h2>
+			<h3 class="chat-userName">
+				{{chat.content}}
+			</h3>
 			<p class="chat.date">
-				{{chat.date}}
+				{{chat.date | date:"MM/dd/yyyy 'at' h:mma" }}
 			</p>
 			<div class="chat-box">
-				<p>{{chat.content}}</p>
+				<p>{{chat.username}}</p>
 			</div>
 		</div>
 	</div>
