@@ -1,6 +1,6 @@
 angular
   .module('chatApp', [
-    'ngRoute', 'userChatApp', 'adminApp'
+    'ngRoute', 'userChatApp', 'adminApp', 'ngCookies'
   ])
   .config(function ($routeProvider) {
     $routeProvider
