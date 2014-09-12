@@ -21,17 +21,18 @@ angular.module('userChatApp')
 
     });
 
-    $scope.addChat = function(chat) {
+      $scope.addChat = function(chat) {
 
       var chatData = {
 
-        userName:userChatSvc.userName,
+        username:$scope.username,
         date:new Date(),
-        chatText:chat.text
+        content:chat.text
 
       };
 
       userChatSvc.addChat(chatData);
+      $scope.chat = {};
 
     };
 
