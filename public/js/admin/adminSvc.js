@@ -3,6 +3,7 @@ angular.module('adminApp')
   .factory('adminSvc', function($log, $rootScope, $http) {
 
     var chatsUrl = '/api/collections/chatappironyard';
+    var userUrl = '/api/collections/chatappironyardusers';
 
     var getChats = function() {
 
@@ -20,10 +21,29 @@ angular.module('adminApp')
       });
     };
 
+    var getUsers = function() {
+
+      return $http.get(userUrl);
+
+    };
+
+    var deleteUser = function(userId) {
+
+      $http.delete(userUrl + '/' + userId).success(function(data) {
+
+        $log.info('user:deleted');
+        $rootScope.$broadcast('user:deleted');
+
+      });
+
+    };
+
     return {
 
       getChats:getChats,
-      deleteChat:deleteChat
+      deleteChat:deleteChat,
+      getUsers:getUsers,
+      deleteUser:deleteUser
 
     };
 

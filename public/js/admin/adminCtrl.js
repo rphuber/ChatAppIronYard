@@ -8,9 +8,23 @@ angular.module("chatApp")
 
     });
 
+    adminSvc.getUsers().success(function(users) {
+
+      $scope.users = users;
+
+      console.log($scope.users);
+
+    });
+
     $scope.deleteChat = function(chatId) {
 
       adminSvc.deleteChat(chatId);
+
+    };
+
+    $scope.deleteUser = function(userId) {
+
+      adminSvc.deleteUser(userId);
 
     };
 
@@ -24,4 +38,14 @@ angular.module("chatApp")
 
     });
 
-  });
+    $rootScope.$on('user:deleted', function() {
+
+      adminSvc.getUsers().success(function(users) {
+
+        $scope.users = users;
+
+      });
+
+    });
+
+});
