@@ -21,6 +21,15 @@ angular.module('userChatApp')
       });
     }, 500);
 
+    $scope.getOnlineUsers = $interval(function() {
+
+      userChatSvc.getOnlineUsers().success(function(onlineUsers) {
+
+      $scope.onlineUsers = onlineUsers;
+
+      });
+    }, 500);
+
       $scope.addChat = function(chat) {
 
       var chatData = {

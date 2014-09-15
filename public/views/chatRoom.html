@@ -1,20 +1,7 @@
 <h1>Welcome to the chat room, {{username}}.</h1>
 <div class="chatroom-container">
-	<div class="chat-area">
-		<div class="chats" ng-repeat="chat in chats track by $index">
-			<h3 class="chat-userName">
-				{{chat.content}}
-			</h3>
-			<p class="chat.date">
-				{{chat.date | date: "MMMM', 'd 'at' h:mm a"}}
-			</p>
-			<div class="chat-box">
-				<p>{{chat.username}}</p>
-			</div>
-		</div>
-	</div>
 	<form ng-submit="addChat(chatSubmit)">
-		<div class="col-sm-12">
+		<div class="col-sm-12 chat-submit">
 	    	<div class="input-group">
 	    		<input type="text" class="form-control" ng-model="chatSubmit.text">
 	    		<span class="input-group-btn">
@@ -23,4 +10,24 @@
 	    	</div>
 		</div>
 	</form>
+
+	<div class="col-sm-12">
+		<div class="chat-area col-sm-8">
+			<div ng-attr-class="{{ chat.username == username && 'user chat panel' || 'nonuser chat panel' }}" ng-repeat="chat in chats track by $index">
+				<h3 class="content">
+					{{chat.content}}
+				</h3>
+				<p class="username">{{chat.username}}</p>
+				<p class="date">
+					{{chat.date | date: "MMMM', 'd 'at' h:mm a"}}
+				</p>
+			</div>
+		</div>
+		<div class="online-users col-sm-4 panel">
+			<h2>Online Users</h2>
+			<div class="userlist" ng-repeat="onlineUser in onlineUsers" ng-attr-class="{{ onlineUser.username == username && 'onlineUser' || 'nonOnlineUser' }}">
+				<h4>{{onlineUser.username}}</h4>
+			</div>
+		</div>
+	</div>
 </div>
