@@ -34,7 +34,7 @@ angular.module('userChatApp')
 
 				$rootScope.$broadcast('chat:added');
 				$log.info('chat:added');
-				$route.reload();
+			
 
 
 			});
