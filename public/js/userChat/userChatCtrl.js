@@ -1,10 +1,10 @@
 angular.module('userChatApp')
 
-  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $route, $cookies, $cookieStore, userChatSvc) {
+  .controller('userChatCtrl', function ($scope, $location, $routeParams, $rootScope, $route, $cookies, $cookieStore, $interval, userChatSvc) {
 
-    $scope.submitUsername = function(name) {
+    $scope.submitUser = function(name) {
 
-      userChatSvc.submitUsername(name);
+      userChatSvc.submitUser(name);
 
       $location.path("/chatRoom");
 
@@ -12,13 +12,14 @@ angular.module('userChatApp')
 
     $scope.username = userChatSvc.username;
 
-    $scope.onlineUsers = userChatSvc.getOnlineUsers();
+      $scope.getChats = $interval(function() {
 
-    userChatSvc.getChats().success(function(chats) {
+        userChatSvc.getChats().success(function(chats) {
 
-      $scope.chats = chats;
+        $scope.chats = chats;
 
-    });
+      });
+    }, 500);
 
       $scope.addChat = function(chat) {
 
@@ -36,14 +37,15 @@ angular.module('userChatApp')
 
     };
 
-    $rootScope.$on('chat:added', function() {
-
-      userChatSvc.getChats().then(function(chats) {
-
-        $scope.chats = chats;
-
-      });
-
-    });
+    // $rootScope.$on('chat:added', function() {
+    //
+    //   userChatSvc.getChats().then(function(chats) {
+    //
+    //     $scope.chats = chats;
+    //     $route.reload();
+    //
+    //   });
+    //
+    // });
 
   });

@@ -2,24 +2,30 @@ angular.module('userChatApp')
 
 	.factory('userChatSvc', function($log, $rootScope, $http, $cookies, $cookieStore, $route) {
 
-		var username = $cookieStore.get('username');
+		var chatsUrl = '/api/collections/chatappironyard';
+		var userUrl = '/api/collections/chatappironyardusers';
 
-		var onlineUsers = [];
+		var username = $cookieStore.get('username');
 
 		var getOnlineUsers = function() {
 
-			return onlineUsers;
+			return $http.get(userUrl);
 
 		};
 
-		var submitUsername = function(name) {
+		var submitUser = function(name) {
 
 			$cookieStore.put('username', name);
-			onlineUsers.push(name);
+
+			var username = {username: name};
+
+			$http.post(userUrl, username).success(function(data) {
+
+				$log.info('user added');
+
+			});
 
 		};
-
-		var chatsUrl = '/api/collections/chatappironyard';
 
 		var getChats = function() {
 
@@ -34,7 +40,6 @@ angular.module('userChatApp')
 
 				$rootScope.$broadcast('chat:added');
 				$log.info('chat:added');
-				$route.reload();
 
 
 			});
@@ -45,7 +50,7 @@ angular.module('userChatApp')
 
 			username:username,
 			getOnlineUsers:getOnlineUsers,
-			submitUsername:submitUsername,
+			submitUser:submitUser,
 			getChats:getChats,
 			addChat:addChat
 
